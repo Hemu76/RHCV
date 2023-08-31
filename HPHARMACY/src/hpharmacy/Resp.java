@@ -1,13 +1,13 @@
 package hpharmacy;
 
 public class Resp {
-	String mname;
+	String data;
 
-	public String getMname() {
-		return mname;
+	public String getData() {
+		return data;
 	}
 
-	public void setMname(String mname) {
-		this.mname = mname;
+	public void setData(String data) {
+		this.data = data;
 	}
 }
