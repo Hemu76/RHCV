@@ -1,0 +1,14 @@
+-- Inserting the first 10 sample records with valid medicine names
+INSERT INTO RHCVPHARMACY (MEDICINE, BATCH_NUMBER, EXPIRY_DATE, PRICE)
+VALUES
+    ('Paracetamol', 'BATCH001', '2023-12-31', 10.99),
+    ('Ibuprofen', 'BATCH002', '2024-06-30', 15.75),
+    ('Amoxicillin', 'BATCH003', '2023-09-15', 8.50),
+    ('Lisinopril', 'BATCH004', '2023-11-30', 25.00),
+    ('Atorvastatin', 'BATCH005', '2024-03-20', 19.25),
+    ('Ciprofloxacin', 'BATCH006', '2024-08-15', 14.50),
+    ('Metformin', 'BATCH007', '2023-10-31', 9.75),
+    ('Amlodipine', 'BATCH008', '2023-07-22', 11.25),
+    ('Tramadol', 'BATCH009', '2024-05-10', 22.00),
+    ('Diazepam', 'BATCH010', '2023-11-18', 16.75);
+
