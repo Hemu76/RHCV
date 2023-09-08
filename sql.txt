@@ -12,3 +12,103 @@ VALUES
     ('Tramadol', 'BATCH009', '2024-05-10', 22.00),
     ('Diazepam', 'BATCH010', '2023-11-18', 16.75);
 
+select * from H_customeres
+select * from H_loanApplicants
+select * from H_loanTypes
+select * from H_loanApplicantsNominees
+select * from H_auser
+drop table H_customeres;
+alter table H_customeres drop column size;
+drop table H_loanApplicants;
+drop table H_loanTypes;
+drop table H_loanApplicantsNominees;
+drop table H_auser;
+delete from H_loanApplicantsNominees;
+delete from H_loanApplicants;
+delete from H_customeres;
+insert into H_auser values(3,'hem','hii')
+insert into H_auser values(4,'hefm','hii');
+insert into H_auser values(5,'hefesm','hii');
+insert into H_auser values(6,'hefem','hii');
+insert into H_auser values(7,'heefm','hii');
+insert into H_auser values(8,'hefasem','hii');
+insert into H_auser values(9,'hefaem','hii');
+insert into H_loanTypes values(1,'hemu','hii')
+CREATE TABLE H_auser(
+	auser_id serial PRIMARY KEY, 
+    auser_username varchar(20) UNIQUE NOT NULL, 
+    auser_password varchar(50) NOT NULL
+);
+
+delete from HH_users
+select * from hh_users
+
+insert into hh_users values(1,'hemu','admin','123')
+
+alter table hh_users drop column user_mobile
+
+CREATE TABLE H_customeres(
+	cust_id serial PRIMARY KEY,
+    cust_firstname varchar(50),
+    cust_lastname varchar(50),
+    cust_dob date, 
+    cust_panno varchar(10),
+    cust_mobile bigint NOT NULL CHECK (cust_mobile >= 1000000000 AND cust_mobile <= 9999999999),
+    cust_address varchar(255),
+    cust_gname varchar(50),
+    cust_luudate date,
+    cust_luser int
+);
+
+
+
+CREATE TABLE H_loantypes(
+	lnty_id serial PRIMARY KEY,
+    lnty_name varchar(50),
+    lnty_desc varchar(255)
+);
+
+
+
+
+
+
+Create table H_loanApplicants(
+	lnap_id serial PRIMARY KEY,
+    lnap_cust_id int,
+    lnap_apdate date, 
+    lnap_lnty_id smallint,
+    lnap_amount numeric, 
+    lnap_emi numeric,  
+    lnap_nom_requested int,
+    lnap_cibil_score numeric, --updated by company
+    lnap_status varchar(4), -- INPR/APRV/RJCD
+    lnap_conclusion_remarks varchar(255),
+    lnap_processed_user int,
+    lnap_processed_date date,
+    FOREIGN KEY (lnap_cust_id) REFERENCES H_customeres(cust_id)
+);
+
+
+ALTER TABLE H_loanApplicants
+DROP COLUMN lnap_emi_range_from,
+DROP COLUMN lnap_emp_range_to;
+
+
+ALTER TABLE H_loanApplicants
+ADD COLUMN lnap_emi numeric;
+
+
+
+
+insert into H_customeres (cust_address, cust_dob, cust_firstname, 
+                          cust_gname, cust_lastname, cust_luser, cust_luudate, cust_mobile, cust_panno, cust_id)
+                          values ('1', '2023-09-08', '11', 'hi', '111', '11111', '2023-09-15','1111111111', 11, 1)
+
+
+CREATE TABLE H_loanApplicantsNominees(
+	lnap_id int,
+    lnap_nominee varchar(50),
+    lanp_relation varchar(50),
+    FOREIGN KEY (lnap_id) REFERENCES H_loanApplicants(lnap_id)
+);
